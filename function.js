@@ -4,5 +4,7 @@ module.exports = db => {
         return db.query(query,params);
     }
 
-    return {findPeopleByName};
+    return {
+        findPeopleByName
+    };
 }
