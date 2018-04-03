@@ -21,7 +21,13 @@ client.connect((err) => {
     queries
     .findPeopleByName(params)
     .then((result) => {
-        console.log(result.rows);
+        console.log('Searching ...');
+        console.log(`Found ${result.rows.length} person(s) by the name '${argv[0]}:'`);
+        let i = 1;
+        result.rows.forEach(element => {
+            console.log(`- ${i}: ${element.first_name} ${element.last_name}, born '${element.birthdate}'`);
+            i++;
+        });
     })
     .catch((err) => {
         console.error(err);

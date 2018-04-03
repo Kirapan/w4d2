@@ -1,14 +1,5 @@
-const settings2 = require("./settings2");
-const knex = require('knex')({
-    client: 'pg',
-    version: '7.4.1',
-    connection: {
-      host : settings2.host,
-      user : settings2.user,
-      password : settings2.password,
-      database : settings2.database
-    }
-  });
+const config = require("./knexfile.js")
+const knex = require('knex')(config);
 
 const fn = process.argv.slice(2)[0];
 const ln = process.argv.slice(2)[1];
